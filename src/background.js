@@ -4,13 +4,26 @@
 // Storage shape (each save replaces that list with a fresh snapshot):
 //   lists: { [owner]: { followers: { savedAt, usernames: [...] }, following: { ... } } }
 
-browser.runtime.onMessage.addListener((message) => {
-  if (message.type === "save-list") {
-    return saveList(message);
-  }
-  if (message.type === "delete-account") {
-    return deleteAccount(message);
-  }
+// Chrome runs this file as a service worker, which can't load
+// shared/browser.js alongside it, so the same alias is repeated here.
+globalThis.browser ??= globalThis.chrome;
+
+const handlers = {
+  "save-list": saveList,
+  "delete-account": deleteAccount,
+};
+
+browser.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  const handler = handlers[message.type];
+  if (!handler) return false;
+
+  // Reply through sendResponse and return true instead of returning a
+  // promise: Chrome doesn't wait for promises returned from this listener.
+  handler(message).then(
+    () => sendResponse({ ok: true }),
+    (error) => sendResponse({ ok: false, error: String(error) }),
+  );
+  return true;
 });
 
 async function saveList({ owner, kind, usernames }) {

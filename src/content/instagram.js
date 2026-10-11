@@ -70,7 +70,11 @@ async function save() {
 
   // Read the list first, in case anything closes the dialog afterwards.
   const usernames = collectAccounts(dialog, list.owner);
-  await browser.runtime.sendMessage({ type: "save-list", ...list, usernames });
+  const response = await browser.runtime.sendMessage({ type: "save-list", ...list, usernames });
+  if (!response?.ok) {
+    console.error("[notafan] saving failed", response?.error);
+    return;
+  }
   lastSaved = { ...list, count: usernames.length };
   update();
 }
