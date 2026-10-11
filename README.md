@@ -1,6 +1,6 @@
 # notafan
 
-A Firefox add-on that records your Instagram followers and following as you
+A Firefox and Chrome extension that records your Instagram followers and following as you
 scroll through those lists, so you can compare them.
 
 It runs locally, so no data is ever stored on any external server; it is stored only on your machine.
@@ -20,6 +20,16 @@ It runs locally, so no data is ever stored on any external server; it is stored 
    saved for that account.
 
 Temporary add-ons are removed when Firefox closes.
+
+## How to Install on Chrome
+
+1. Download the repository
+2. Open `chrome://extensions` and turn on **Developer mode** (top right).
+3. Click **Load unpacked** and pick the `src` folder.
+4. Use it on instagram.com the same way as described for Firefox above.
+
+Chrome shows an "Unrecognized manifest key 'browser_specific_settings'" warning
+on the extension's card; that setting is only for Firefox and can be ignored.
 
 ## Optional: web-ext
 
