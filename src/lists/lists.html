@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>notafan</title>
+  <link rel="stylesheet" href="lists.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>notafan</h1>
+      <div id="account-controls" hidden>
+        <select id="account" aria-label="Account"></select>
+        <button id="delete" type="button">Delete</button>
+      </div>
+    </header>
+
+    <p id="empty" class="muted">
+      No lists saved yet. On Instagram, open a profile's followers or following
+      list, scroll to the end and click <b>Save</b>.
+    </p>
+
+    <section id="lists" hidden>
+      <div class="tabs">
+        <button type="button" data-tab="notFollowingBack">Don't follow back <span class="count"></span></button>
+        <button type="button" data-tab="followers">Followers <span class="count"></span></button>
+        <button type="button" data-tab="following">Following <span class="count"></span></button>
+      </div>
+      <p id="note" class="muted"></p>
+      <input id="filter" type="search" placeholder="Search usernames" aria-label="Search usernames">
+      <ol id="users"></ol>
+      <p id="none" class="muted" hidden></p>
+    </section>
+  </main>
+  <script src="../shared/lists.js"></script>
+  <script src="lists.js"></script>
+</body>
+</html>
