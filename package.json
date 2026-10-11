@@ -1,0 +1,21 @@
+{
+  "name": "notafan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Firefox add-on that records your Instagram followers and following as you scroll through them.",
+  "scripts": {
+    "start": "web-ext run",
+    "lint": "web-ext lint",
+    "build": "web-ext build --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^8.0.0"
+  },
+  "webExt": {
+    "sourceDir": "src",
+    "artifactsDir": "dist",
+    "run": {
+      "startUrl": ["https://www.instagram.com/"]
+    }
+  }
+}
