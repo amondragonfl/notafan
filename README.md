@@ -30,3 +30,7 @@ With Node.js installed, `npm install` gets Mozilla's
   It uses a fresh profile, so you have to log in to Instagram each time.
 - `npm run lint` checks the add-on against the rules addons.mozilla.org applies.
 - `npm run build` packages `src/` into a zip in `dist/`.
+
+## Limitations
+1. Instagram limits the amount of followers and following shown for other users' accounts, so this add-on only works to scrape your complete lists
+2. If the amount of follwers or following lists is huge, it will take a while to record all data points 
