@@ -43,4 +43,4 @@ With Node.js installed, `npm install` gets Mozilla's
 
 ## Limitations
 1. Instagram limits the amount of followers and following shown for other users' accounts, so this add-on only works to scrape your complete lists
-2. If the amount of follwers or following lists is huge, it will take a while to record all data points 
+2. If the amount of followers or following lists is huge, it will take a while to record all data points 
