@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "notafan",
+  "version": "0.1.0",
+  "description": "Records your Instagram followers and following as you scroll through them.",
+
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+
+  "permissions": ["storage"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content/instagram.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_title": "notafan",
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notafan@extension",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
