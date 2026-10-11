@@ -3,32 +3,11 @@
 A Firefox add-on that records your Instagram followers and following as you
 scroll through those lists, so you can compare them.
 
-## Layout
+It runs locally, so no data is ever stored on any external server; it is stored only on your machine.
 
-```
-src/                    the extension itself (this folder is what Firefox loads)
-├── manifest.json
-├── background.js       owns storage; receives accounts from the content script
-├── content/
-│   └── instagram.js    runs on instagram.com, adds the Save button to the followers/following dialog
-├── popup/              toolbar button popup: one summary row per saved account
-│   ├── popup.html
-│   ├── popup.css
-│   └── popup.js
-├── lists/              full-page view: followers, following and "don't follow back"
-│   ├── lists.html
-│   ├── lists.css
-│   └── lists.js
-├── shared/
-│   └── lists.js        storage and comparison helpers used by popup and lists page
-└── icons/
-    └── icon.svg
-```
+## How to Install on Firefox 
 
-There is no build step: the files in `src/` are loaded as-is.
-
-## Running it in Firefox
-
+1. Download the repository 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** and pick `src/manifest.json`.
 3. Go to instagram.com, open your profile, click **followers** or **following**,
@@ -40,7 +19,6 @@ There is no build step: the files in `src/` are loaded as-is.
    Instagram profiles. **Delete** next to the account picker removes everything
    saved for that account.
 
-After editing a file, click **Reload** on the add-on in `about:debugging`.
 Temporary add-ons are removed when Firefox closes.
 
 ## Optional: web-ext
